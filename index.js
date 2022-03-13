@@ -182,8 +182,9 @@ function splitRowsByDate(rows) {
       continue;
     }
 
-    const [dateTimeStr, resultStr] = row.split(",", 2);
-    const dateTime = new Date(Date.parse(dateTimeStr.replace(/-/g, "/") + " GMT"));
+    const [dateTimeStr, resultStr] = row.split(',', 2);
+    // Replace '-' with '/' because Safari
+    const dateTime = new Date(Date.parse(dateTimeStr.replaceAll('-', '/') + ' GMT'));
     const dateStr = dateTime.toDateString();
 
     let resultArray = dateValues[dateStr];
@@ -249,4 +250,13 @@ async function genAllReports() {
 
     await genReportLog(document.getElementById("reports"), key, url);
   }
+}
+
+async function genIncidentReport() {
+  const response = await fetch("incident_report.md");
+  if (response.ok) {
+    const markdown = await response.text();
+    const htmlDom = DOMPurify.sanitize(marked.parse(markdown));
+    document.getElementById('incidentReport').innerHTML = htmlDom;
+  } 
 }
