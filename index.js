@@ -132,7 +132,7 @@ function getStatusDescriptiveText(color) {
 
 function getTooltip(key, date, quartile, color) {
   let statusText = getStatusText(color);
-  return `${key} | ${date.toDateString()} : ${quartile} : ${statusText}`;
+  return `${key} | ${date.toLocaleDateString('ru-RU')} : ${quartile} : ${statusText}`;
 }
 
 function create(tag, className) {
@@ -185,7 +185,7 @@ function splitRowsByDate(rows) {
     const [dateTimeStr, resultStr] = row.split(',', 2);
     // Replace '-' with '/' because Safari
     const dateTime = new Date(Date.parse(dateTimeStr.replaceAll('-', '/') + ' GMT'));
-    const dateStr = dateTime.toLocaleDateString('ru-RU');
+    const dateStr = dateTime.toDateString();
 
     let resultArray = dateValues[dateStr];
     if (!resultArray) {
