@@ -122,11 +122,11 @@ function getStatusDescriptiveText(color) {
   return color == "nodata"
     ? "Данные недоступны: Проверка доступности не производилась."
     : color == "success"
-    ? "В этот день отказов не зафиксировано."
+    ? "В этот день проблем не зафиксировано."
     : color == "failure"
     ? "В этот день зафиксированы серьезные перебои в работе."
     : color == "partial"
-    ? "В этот день зафиксированы небольшие перебои в работе."
+    ? "В этот день зафиксированы перебои в работе."
     : "Неизвестно";
 }
 
@@ -185,7 +185,7 @@ function splitRowsByDate(rows) {
     const [dateTimeStr, resultStr] = row.split(',', 2);
     // Replace '-' with '/' because Safari
     const dateTime = new Date(Date.parse(dateTimeStr.replaceAll('-', '/') + ' GMT'));
-    const dateStr = dateTime.toDateString();
+    const dateStr = dateTime.toLocaleDateString('ru-RU');
 
     let resultArray = dateValues[dateStr];
     if (!resultArray) {
