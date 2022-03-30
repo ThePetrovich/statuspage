@@ -42,6 +42,6 @@
 
 ##### Техническое обслуживание
 
-<span style="color:orange"><strong>Активно</strong></span>
+<span style="color:green"><strong>Завершено</strong></span>
 
 Сервис https://pcb.yktaero.space временно недоступен.
