@@ -3,7 +3,7 @@
 
 ##### Запланированное техническое обслуживание
 
-<span style="color:orange"><strong>Запланировано</strong></span>
+<span style="color:green"><strong>Завершено</strong></span>
 
 С 18:00 до 23:00 24.09.2022 сервис auth.yktaero.space будет выключен для проведения технических работ.
 
