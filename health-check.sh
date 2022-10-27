@@ -34,7 +34,7 @@ do
 
   for i in 1 2 3 4; 
   do
-    response=$(timeout 5 curl --write-out '%{http_code}' --silent --output /dev/null $url)
+    response=$(timeout 5 curl --write-out '%{http_code}' --silent --output --connection-timeout 5 /dev/null $url)
     if [ "$response" -eq 200 ] || [ "$response" -eq 202 ] || [ "$response" -eq 301 ] || [ "$response" -eq 302 ] || [ "$response" -eq 307 ]; then
       result="success"
     else
