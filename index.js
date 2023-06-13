@@ -114,7 +114,7 @@ function getStatusText(color) {
     : color == "failure"
     ? "Не работает"
     : color == "partial"
-    ? "Работает с перебоями"
+    ? "Перебои в работе"
     : "Состояние неизвестно";
 }
 
